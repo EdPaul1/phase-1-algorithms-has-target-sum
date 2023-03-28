@@ -1,12 +1,10 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
-  const read = new Set();
   for (i = 0; i < array.length; i++){
     const remainder = target - array[i];
-    if (read.has(remainder)){
-      return true;
+    for (let j = i + 1; j < array.length; j++){
+      if (array[j] === remainder) return true
     }
-    read.add(array[i]);
   }
   return false;
 }
@@ -23,8 +21,8 @@ function hasTargetSum(array, target) {
 /*
   Add written explanation of your solution here
   The function hasTarget takes in two elements as the input. an array of integers and an integer as a target
-  a variable read is a new set that records elements of the array that the for loop as iterated over.
-  the remainder variable takes in the target element and all numbers in the array are subtracted from the target and returns true if a matching value is in the set.
+  The remainder variable stores integers that are a result of the subtraction of target and array[i]
+  The second for loop checks for a similar integer as the remainder in our input array 
   
 */
 
